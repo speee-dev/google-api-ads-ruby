@@ -37,12 +37,17 @@ programmatically access your accounts.
 
 1. Install your library of choice using RubyGems.
 
-    $ gem install google-adwords-api
+        $ gem install google-adwords-api
 
- or
+   or
 
-    $ gem install google-dfp-api
+        $ gem install google-dfp-api
 
+   Note: If you're using a version of Ruby lower than 2.2.2, you will need to
+   manually install a previous version of Rack, a dependency of our HTTP
+   library. You can do this with:
+
+        $ gem install rack -v 1.6.4
 
 1. Copy the sample config file (**adwords_api.yml** or **dfp_api.yml**) for your
 product to your home directory and fill out the required properties.
@@ -95,3 +100,13 @@ other news.
  - [AdsCommon ChangeLog](https://github.com/googleads/google-api-ads-ruby/blob/master/ads_common/ChangeLog)
  - [AdWords library ChangeLog](https://github.com/googleads/google-api-ads-ruby/blob/master/adwords_api/ChangeLog)
  - [DFP library ChangeLog](https://github.com/googleads/google-api-ads-ruby/blob/master/dfp_api/ChangeLog)
+
+## Contributing
+
+See [CONTRIBUTING.md]
+(https://github.com/googleads/google-api-ads-ruby/blob/master/CONTRIBUTING.md)
+for details on how to contribute.
+
+Note: if you have an ad blocker active, you might experience issues while
+submitting an issue or pull request. You can still contribute by disabling the
+ad blocker for this project URL.
