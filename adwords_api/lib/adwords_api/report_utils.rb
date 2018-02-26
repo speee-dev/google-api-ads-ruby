@@ -219,8 +219,7 @@ module AdwordsApi
     # Makes request and AdHoc service and returns response.
     def make_adhoc_request(data, cid, &block)
       @api.utils_reporter.report_utils_used()
-      url = @api.api_config.adhoc_report_download_url(
-          @api.config.read('service.environment'), @version)
+      url = @api.api_config.adhoc_report_download_url(@version)
       headers = get_report_request_headers(url, cid)
       log_request(url, headers, data)
       # A given block indicates that we should make a stream request and yield
@@ -308,7 +307,17 @@ module AdwordsApi
     def report_definition_to_xml(report_definition)
       check_report_definition_hash(report_definition)
       add_report_definition_hash_order(report_definition)
-      return Gyoku.xml({:report_definition => report_definition})
+      begin
+        return Gyoku.xml({:report_definition => report_definition})
+      rescue ArgumentError => e
+        if e.message.include?("order!")
+          unknown_fields =
+              e.message.slice(e.message.index('['), e.message.length)
+          raise AdwordsApi::Errors::InvalidReportDefinitionError,
+              "Unknown report definition field(s): %s" % unknown_fields
+        end
+        raise e
+      end
     end
 
     # Checks if the report definition looks correct.

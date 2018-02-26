@@ -1,3 +1,40 @@
+1.1.0:
+  - Added ReportQueryBuilder and ServiceQueryBuilder to aid in constructing
+    AWQL for both contexts.
+  - Remove deprecated API version v201702.
+
+1.0.1:
+  - Support and examples for v201710.
+
+1.0.0:
+  - Major version bump. The library has been stable and feature complete for
+    some time, and this is more accurately reflected by this version number.
+  - Remove deprecated API version v201609.
+  - No longer include test files in the built gem.
+  - Fixed potential issue where ReportStream could not split sometimes when a
+    unicode character was returned across separate batches.
+  - Removing support for multiple environments.
+  - Require google-ads-common 1.0.0 or later from now on.
+
+0.25.1:
+  - Support and examples for v201708.
+
+0.25.0:
+  - Removed deprecated API version v201607.
+  - Require google-ads-common 0.14.1 or later from now on.
+
+0.24.1:
+  - Support and examples for v201705.
+  - Require google-ads-common 0.14.0 or later from now on for logging updates.
+
+0.24.0:
+  - Removed deprecated API version v201605.
+  - Require google-ads-common 0.13.0 or later from now on. This removes
+    support for p12 key files for service accounts.
+  - Fixing issue with report_stream handling of streams ending in newline.
+  - Fixed issue #107. Improved error messaging when trying to specify
+    unrecognized fields in report definition.
+
 0.23.1:
   - Support and examples for v201702.
 

@@ -77,14 +77,19 @@ module AdsCommon
       #
       def auth_string(credentials)
         token = get_token(credentials)
+        if token.nil?
+          raise AdsCommon::Errors::AuthError.new(
+            'Could not get auth token. Are you missing a refresh token?')
+        end
         return ::Signet::OAuth2.generate_bearer_authorization_header(
             token[:access_token])
       end
 
       # Overrides base get_token method to account for the token expiration.
-      def get_token(credentials = nil)
+      def get_token(credentials = nil, force_refresh = false)
         token = super(credentials)
-        token = refresh_token! if !@client.nil? && @client.expired?
+        token = refresh_token! if !@client.nil? &&
+            (force_refresh || @client.expired?)
         return token
       end
 

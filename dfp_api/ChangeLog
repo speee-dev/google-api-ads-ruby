@@ -1,3 +1,39 @@
+1.2.1:
+  - Fix warning for duplicate assignment of SUGGESTED_PAGE_LIMIT constant.
+
+1.2.0:
+  - Added support for v201802.
+  - Removed support for v201702.
+  - Removed examples for v201705.
+  - Added StatementBuilder for easier PQL statement generation.
+  - Added DfpDate and DfpDateTime to make using Date and Time objects easier
+    in the DFP API.
+  - Deprecated FilterStatement.
+
+1.1.0:
+  - Added support for v201711.
+  - Removed support for v201611.
+  - Removed examples for v201702.
+
+1.0.0:
+  - Major version bump. The library has been stable and feature complete for
+    some time, and this is more accurately reflected by this version number.
+  - No longer include test files in the built gem.
+  - Removing support for multiple environments.
+  - Require google-ads-common 1.0.0 or later from now on.
+
+0.22.0:
+  - Added support for v201708.
+  - Removed support for v201608.
+  - Removed examples for v201611.
+
+0.21.0:
+  - Added support for v201705.
+  - Removed support for v201605.
+  - Removed examples for v201608.
+  - Require google-ads-common 0.14.0 or later from now on. This improves logging
+    and removes support for p12 key files for service accounts.
+
 0.20.0:
   - Added support for v201702.
   - Removed support for v201602.
