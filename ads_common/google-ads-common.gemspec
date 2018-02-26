@@ -34,11 +34,14 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = '>= 1.3.6'
   s.rubyforge_project = 'google-ads-common'
   s.require_path = 'lib'
-  s.files = Dir.glob('{lib,test}/**/*') + %w(COPYING README.md ChangeLog)
-  s.test_files = Dir.glob('test/test_*.rb')
-  s.add_runtime_dependency('google-ads-savon', '~> 1.0.2')
+  s.files = Dir.glob('lib/**/*') + %w(COPYING README.md ChangeLog)
+  s.add_runtime_dependency('google-ads-savon', '~> 1.0', '>=1.0.2')
   s.add_runtime_dependency('httpi', '~> 2.3')
   s.add_runtime_dependency('httpclient', '~> 2.7')
-  s.add_runtime_dependency('signet', '~> 0.7.0')
-  s.add_development_dependency('rake', '>= 10.4.2')
+  s.add_runtime_dependency('signet', '~> 0.7')
+  s.add_development_dependency('rake', '~> 12.0')
+  s.add_development_dependency('test-unit', '~> 3.2')
+  s.add_development_dependency('webmock', '~> 3.0')
+  s.add_development_dependency('minitest', '~> 5.10')
+  s.add_development_dependency('rr', '~> 1.0.5')
 end

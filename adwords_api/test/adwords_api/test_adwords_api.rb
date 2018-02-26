@@ -34,7 +34,7 @@ end
 
 class TestAdwordsApi < Test::Unit::TestCase
 
-  API_VERSION = :v201702
+  API_VERSION = :v201710
 
   def setup()
     @logger = LoggerStub.new
@@ -73,19 +73,9 @@ class TestAdwordsApi < Test::Unit::TestCase
     end
   end
 
-  def test_no_sandbox_env()
+  def test_service()
     adwords_api = AdwordsApi::Api.new({
-      :service => {:environment => 'SANDBOX'}
-    })
-    assert_raise(AdsCommon::Errors::Error) do
-      service = adwords_api.service(:ManagedCustomerService, API_VERSION)
-    end
-  end
-
-  def test_prod_env()
-    adwords_api = AdwordsApi::Api.new({
-      :library => {:logger => @logger},
-      :service => {:environment => 'PRODUCTION'}
+      :library => {:logger => @logger}
     })
     service = adwords_api.service(:ManagedCustomerService, API_VERSION)
   end
